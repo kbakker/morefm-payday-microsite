@@ -1,3 +1,19 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+
+  window.showLoader = ->
+    $('#loader').fadeIn()
+
+  window.hideLoader = ->
+    $('#loader').fadeOut()
+
+  $(document).on 'submit', 'form.new_entry', ->
+    form = $(this)
+    $.ajax
+      data: form.serialize()
+      url: '/entries'
+      type: 'post'
+      beforeSend: ->
+        window.showLoader()
+      complete: ->
+        window.hideLoader()
+    return false

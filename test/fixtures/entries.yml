@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  processed_at: 2019-09-09 17:11:14
+
+two:
+  number: MyString
+  processed_at: 2019-09-09 17:11:14

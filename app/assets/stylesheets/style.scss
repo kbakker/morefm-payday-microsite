@@ -1,33 +1,85 @@
-// Bootstrp Colors
+// Bootstrap Colors
 $theme-colors: (
-  "secondary": #56debe
+  "primary": #6C3B92
 );
 
 // Bootstrap
 @import "bootstrap";
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+body, p, h1,h2,h3,h4,h5 {
+  color: #ffffff;
+}
+
+h1,h2,h3,h4,h5 {
+  text-transform: uppercase;
+  font-weight: 700;
+}
 
 // Basics
 html, body {
   height: 100%;
 }
 body {
-  background-color: #52a8dc;
-  background: linear-gradient(135deg,#52a8dc 0,#1d8dc9 10%,#0c74b9 23%,#0c74b9 23%,#0c74b9 56%,#2989d8 99%);
+  background: #409ed5; /* Old browsers */
+  background: -moz-linear-gradient(-45deg,  #409ed5 0%, #1b7dc7 49%, #0f4983 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg,  #409ed5 0%,#1b7dc7 49%,#0f4983 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg,  #409ed5 0%,#1b7dc7 49%,#0f4983 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#409ed5', endColorstr='#0f4983',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 .main-content {
-  background-image: url(image_path('payday-logo.png'));
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  background: url(image_path('payday_logo.png'));
+  background-size: 80%;
   background-repeat: no-repeat;
-  background-position: 50% 0;
+  background-position: 50% -60px;
+}
+
+.main-content {
   text-align: center;
 }
 
-// Brand Logos
-.brand-logos > img {
-  max-width: 100%;
+.main-content .entry-form {
+  background-color: rgba(0,0,0,0.5);
+  padding: 50px;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translate(-50%, 0); 
+  width: 90%;
+  max-width: 600px;
 }
 
-// Promotion Logo
-.promo-logo > img {
-  max-width: 100%;
+.main-content .entry-form .form-control-lg,
+.main-content .entry-form .form-control-lg:focus {
+  background: #ffffff;
+  border-radius: 0;
+  border: none !important;
+  outline: none !important;
+  font-size: 1.5em;
+  box-shadow: 0;
+  width: 100%;
+}
+
+.main-content .entry-form .btn-lg {
+  border-radius: 0;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 1.8em;
+  padding: 10px;
+}
+
+// Brand Logos
+.brand-logos {
+  padding-top: 20px;
 }
