@@ -28,7 +28,7 @@ class Entry < ApplicationRecord
     self.update(processed_at: nil)
   end
 
-  def number_full(country_code="+61")
+  def number_full(country_code="+64")
     "#{country_code}#{number.to_i}"
   end
 
