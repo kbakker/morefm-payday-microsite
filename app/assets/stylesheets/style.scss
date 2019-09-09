@@ -1,0 +1,33 @@
+// Bootstrp Colors
+$theme-colors: (
+  "secondary": #56debe
+);
+
+// Bootstrap
+@import "bootstrap";
+
+// Basics
+html, body {
+  height: 100%;
+}
+body {
+  background-color: #52a8dc;
+  background: linear-gradient(135deg,#52a8dc 0,#1d8dc9 10%,#0c74b9 23%,#0c74b9 23%,#0c74b9 56%,#2989d8 99%);
+}
+
+.main-content {
+  background-image: url(image_path('payday-logo.png'));
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  text-align: center;
+}
+
+// Brand Logos
+.brand-logos > img {
+  max-width: 100%;
+}
+
+// Promotion Logo
+.promo-logo > img {
+  max-width: 100%;
+}
