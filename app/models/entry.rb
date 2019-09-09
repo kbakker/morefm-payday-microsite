@@ -6,9 +6,18 @@ class Entry < ApplicationRecord
 
   # Validations
   validates :number, presence: true, numericality: { only_integer: true }
+  validate :phone_number_valid
 
   def process!
-    
+    @client = Audata::Promo.new(api_key: '773ea6689e41419839990d708617c141')
+    @client.create_prize({
+      prize: {
+        prize_type: 'list',
+        phone_number: number,
+        campaign_id: 8539,
+        list_id: 433
+      }
+    })
   end
 
   def processed!
@@ -17,6 +26,18 @@ class Entry < ApplicationRecord
 
   def not_processed!
     self.update(processed_at: nil)
+  end
+
+  def number_full(country_code="+61")
+    "#{country_code}#{number.to_i}"
+  end
+
+private
+
+  def phone_number_valid
+    unless Phony.plausible?(number_full)
+      errors.add(:number, "doesn't look like a valid phone number")
+    end
   end
 
 end

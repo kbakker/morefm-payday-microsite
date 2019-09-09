@@ -6,7 +6,7 @@ class EntriesController < ApplicationController
     if @entry.save && @entry.process!
       render json: @entry, status: :ok
     else
-      render json: @entry.error_messages, status: :unprocessable_entity
+      render json: @entry.errors, status: :unprocessable_entity
     end
   end
 

@@ -14,6 +14,11 @@ $ ->
       type: 'post'
       beforeSend: ->
         window.showLoader()
+      success: (data) ->
+        $('#modal-success').modal('show')
+      error: (data) ->
+        $('#modal-failure').modal('show')
       complete: ->
         window.hideLoader()
+        form.find('input').val('').focus()
     return false
