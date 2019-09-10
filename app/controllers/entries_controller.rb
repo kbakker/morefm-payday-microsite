@@ -3,10 +3,10 @@ class EntriesController < ApplicationController
   # POST /entries
   def create
     @entry = Entry.new(entry_params)
-    if @entry.save && @entry.process!
+    if @entry.save
       render json: @entry, status: :ok
     else
-      render json: @entry.errors, status: :unprocessable_entity
+      render json: @entry.errors.full_messages, status: :unprocessable_entity
     end
   end
 

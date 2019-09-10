@@ -11,13 +11,13 @@ $ ->
     $.ajax
       data: form.serialize()
       url: '/entries'
-      type: 'post'
+      type: 'POST'
+      dataType: 'json'
       beforeSend: ->
         window.showLoader()
       success: (data) ->
         $('#modal-success').modal('show')
       error: (data) ->
-        $('#modal-failure').find('.modal-body > p').text(data)
         $('#modal-failure').modal('show')
       complete: ->
         window.hideLoader()
