@@ -5,7 +5,7 @@ class Entry < ApplicationRecord
   scope :not_processed, -> { where("processed_at IS NULL") }
 
   # Validations
-  validates :number, presence: true, uniqueness: true, numericality: { only_integer: true }
+  validates :number, presence: true, numericality: { only_integer: true }
   validate :phone_number_valid
 
   def process!

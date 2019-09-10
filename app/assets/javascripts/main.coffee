@@ -17,6 +17,7 @@ $ ->
       success: (data) ->
         $('#modal-success').modal('show')
       error: (data) ->
+        $('#modal-failure').find('.modal-body > p').text(data)
         $('#modal-failure').modal('show')
       complete: ->
         window.hideLoader()
