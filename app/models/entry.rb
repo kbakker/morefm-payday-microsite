@@ -8,6 +8,9 @@ class Entry < ApplicationRecord
   validates :number, presence: true, numericality: { only_integer: true }
   validate :phone_number_valid
 
+  # Callbacks
+  before_validation :process!, on: :create
+
   def process!
     @client = Audata::Promo.new(api_key: '773ea6689e41419839990d708617c141')
     @client.create_prize({

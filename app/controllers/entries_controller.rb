@@ -1,4 +1,6 @@
 class EntriesController < ApplicationController
+  # Skip CSRF
+  skip_before_action :verify_authenticity_token
 
   # POST /entries
   def create
