@@ -9,7 +9,7 @@ class Entry < ApplicationRecord
   validate :phone_number_valid
 
   # Callbacks
-  before_validation :process!, on: :create
+  after_create :process!
 
   def process!
     @client = Audata::Promo.new(api_key: '773ea6689e41419839990d708617c141')
