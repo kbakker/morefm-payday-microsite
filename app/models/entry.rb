@@ -6,17 +6,19 @@ class Entry < ApplicationRecord
 
   # Validations
   validates :number, presence: true, uniqueness: true, numericality: { only_integer: true }
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP } 
   validate :phone_number_valid
 
   # Callbacks
   after_create :process!
-
+  
   def process!
     @client = Audata::Promo.new(api_key: '773ea6689e41419839990d708617c141')
     @client.create_prize({
       prize: {
         prize_type: 'list',
         phone_number: number,
+        email: email,
         campaign_id: 8539,
         list_id: 433
       }

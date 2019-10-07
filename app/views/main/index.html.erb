@@ -1,4 +1,5 @@
 <div class="main-content">
+
   <div class="brand-logos">
     <%= image_tag "logos.png", size: '500x80', class: 'image-fluid' %>
   </div>
@@ -7,7 +8,7 @@
     <%= flash_messages %>
     <%= simple_form_for @entry do |f| %>
 
-      <h3>Enter your mobile phone number</h3>
+      <h4>Your mobile number:</h4>
       
       <%= f.input :number,
         label: false,
@@ -17,6 +18,15 @@
           type: 'number'
         },
         placeholder: "Your mobile number..." %>
+
+      <h4>Your email address:</h4>
+
+      <%= f.input :email,
+        label: false,
+        input_html: { 
+          class: 'form-control-lg mb-3 mt-2'
+        },
+        placeholder: "Your email address..." %>        
 
         <%= button_tag "Enter Now", class: 'btn btn-lg btn-block btn-primary'%>
 
