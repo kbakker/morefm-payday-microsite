@@ -11,9 +11,9 @@ class Entry < ApplicationRecord
 
   # Callbacks
   after_create :process!
-  
+
   def process!
-    @client = Audata::Promo.new(api_key: '773ea6689e41419839990d708617c141')
+    @client = Audata::Promo.new(api_key: ENV["AUDATA_PROMO_API_KEY"])
     @client.create_prize({
       prize: {
         prize_type: 'list',
