@@ -6,7 +6,7 @@ class Entry < ApplicationRecord
 
   # Validations
   validates :number, presence: true, uniqueness: true, numericality: { only_integer: true }
-  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP } 
+  validates :email, presence: true
   validate :phone_number_valid
 
   # Callbacks
